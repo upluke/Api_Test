@@ -1,5 +1,5 @@
 import React,{useState,useReducer} from 'react'
-
+import {Counter} from './Counter'
 
 enum ActionType{
     INCREMENT_COUNTER="INCREMENT_COUNTER",
@@ -22,7 +22,7 @@ export const Main=()=>{
     const [state, dispatch] = useReducer<React.Reducer<ICounter,IReducer>>(reducer, {count:0})
     return(
         <div>
-             
+             <Counter />
         </div>
     )
 }
