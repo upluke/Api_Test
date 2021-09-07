@@ -24,8 +24,8 @@ interface UserInfoInterface{
 //  }
 
 // @@@@@@ axios then
-function fetchMyApi(){
-    return axios.get('https://randomuser.me/api')
+function fetchMyApi(pageNumber:number=1){
+    return axios.get(`https://randomuser.me/api?page=${pageNumber}`)
   .then(({data})=> {
     return data
   })
@@ -42,8 +42,10 @@ const getFullUserName=(userInfo:UserInfoInterface)=>{
 }
 
 export const DisplayApi=()=>{
-    const [myData, setMyData]=React.useState<any>("")
+    const [myData, setMyData]=React.useState("")
     const [userInfos, setUserInfos]=React.useState<any>([])
+    const [nextPageNumber, setNextPageNumber]=React.useState(1)
+ 
 
     // @@@@@@ async await
     // React.useEffect(() => {
@@ -60,34 +62,43 @@ export const DisplayApi=()=>{
     // }, [])
 
     // @@@@@@ axios then
+    const fetchNextUser=()=>{
+        fetchMyApi(nextPageNumber).then((data:any)=>{
+            if (data===undefined) return //if run out of the page
+            try{
+                setMyData(JSON.stringify(data,null,2)) // this line is only for getting the data to show data on the page
+                const newUserInfos=[
+                    ...userInfos,
+                    ...data.results
+                ]
+                setUserInfos(newUserInfos)
+              
+                setNextPageNumber(data.info.page+1)
+             }catch(error){
+                console.error(error)
+            }
+        })
+    }
+
     React.useEffect(()=>{
-        
-            fetchMyApi().then((data:any)=>{
-                try{
-                    setMyData(JSON.stringify(data,null,2)) // this line is only for getting the data to show data on the page
-                    setUserInfos(data.results)
-                 }catch(error){
-                    console.error(error)
-                }
-            })
-       
-     
+        fetchNextUser()
     },[])
 
  
-
+    console.log(userInfos)
     return (
         <div>
-            {userInfos.map((userInfo:UserInfoInterface,idx:number)=>(
+            {userInfos.map((userInfo:any,idx:number)=>(
                 <div key={idx}>
                    <p>{getFullUserName(userInfo)}</p>
                    <img src={userInfo.picture.thumbnail} alt="img"/>
                </div>
            ))} 
+         
+           <button onClick={()=>{fetchNextUser()}}>Generate a new User</button>
            <pre>
                {myData}
            </pre>
-            DisplayApi
         </div>
     )
 }
