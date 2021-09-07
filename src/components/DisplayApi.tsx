@@ -62,7 +62,8 @@ export const DisplayApi=()=>{
     // }, [])
 
     // @@@@@@ axios then
-    const fetchNextUser=()=>{
+    const fetchNextUser=React.useRef(()=>{}) // use useRef to get rid of the yellow linter when listening to fetchNextUser in useEffect
+    fetchNextUser.current=()=>{
         fetchMyApi(nextPageNumber).then((data:any)=>{
             if (data===undefined) return //if run out of the page
             try{
@@ -81,8 +82,8 @@ export const DisplayApi=()=>{
     }
 
     React.useEffect(()=>{
-        fetchNextUser()
-    },[])
+        fetchNextUser.current()
+    },[fetchNextUser])
 
  
     console.log(userInfos)
@@ -95,7 +96,7 @@ export const DisplayApi=()=>{
                </div>
            ))} 
          
-           <button onClick={()=>{fetchNextUser()}}>Generate a new User</button>
+           <button onClick={()=>{fetchNextUser.current()}}>Generate a new User</button>
            <pre>
                {myData}
            </pre>
