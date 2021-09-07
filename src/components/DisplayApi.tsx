@@ -2,6 +2,19 @@ import React from 'react'
 import axios from 'axios'
 //https://randomuser.me/api
 
+type Username={
+    first:string;
+    last:string
+}
+
+type UserPicture={
+    thumbnail:string;
+}
+
+interface UserInfoInterface{
+    name:Username
+    picture:UserPicture
+}
 
 // @@@@@@ async await
 // async function fetchMyApi(){
@@ -23,7 +36,7 @@ function fetchMyApi(){
    
 }
 
-const getFullUserName=(userInfo:any)=>{
+const getFullUserName=(userInfo:UserInfoInterface)=>{
     const {name:{first, last}}=userInfo
     return `${first} ${last}`
 }
@@ -65,7 +78,7 @@ export const DisplayApi=()=>{
 
     return (
         <div>
-            {userInfos.map((userInfo:any,idx:any)=>(
+            {userInfos.map((userInfo:UserInfoInterface,idx:number)=>(
                 <div key={idx}>
                    <p>{getFullUserName(userInfo)}</p>
                    <img src={userInfo.picture.thumbnail} alt="img"/>
