@@ -2,12 +2,15 @@ import React from 'react'
 import axios from 'axios'
 //https://randomuser.me/api
 
+
+// @@@@@@ async await
 // async function fetchMyApi(){
 //     let response= await fetch("https://randomuser.me/api")
 //     let json= await response.json()
 //     return json
 //  }
 
+// @@@@@@ axios then
 function fetchMyApi(){
     return axios.get('https://randomuser.me/api')
   .then(({data})=> {
@@ -26,37 +29,50 @@ const getFullUserName=(userInfo:any)=>{
 }
 
 export const DisplayApi=()=>{
-    const [data, setData]=React.useState<any>("")
+    const [myData, setMyData]=React.useState<any>("")
     const [userInfos, setUserInfos]=React.useState<any>([])
 
-   
-
+    // @@@@@@ async await
     // React.useEffect(() => {
     //     (async()=>{
-    //         let fetchData=await fetchMyApi()
-    //         setData(JSON.stringify(fetchData,null,2))
-    //         setUserInfos(data)   
-    //         console.log("results: ",userInfos)
+    //         try{
+    //             const fetchData=await fetchMyApi()
+    //             setMyData(JSON.stringify(fetchData,null,2))
+    //             setUserInfos(fetchData.results)
+    //         }catch(error){
+    //             console.error(error)
+    //         }
+           
     //     })()
     // }, [])
-     
+
+    // @@@@@@ axios then
     React.useEffect(()=>{
-        fetchMyApi().then((data:any)=>{
-            setData(JSON.stringify(data,null,2))
-            setUserInfos(data.results)
-        })
+        
+            fetchMyApi().then((data:any)=>{
+                try{
+                    setMyData(JSON.stringify(data,null,2)) // this line is only for getting the data to show data on the page
+                    setUserInfos(data.results)
+                 }catch(error){
+                    console.error(error)
+                }
+            })
+       
+     
     },[])
-    console.log("data",userInfos)
+
+ 
 
     return (
         <div>
             {userInfos.map((userInfo:any,idx:any)=>(
-                <div>
+                <div key={idx}>
                    <p>{getFullUserName(userInfo)}</p>
+                   <img src={userInfo.picture.thumbnail} alt="img"/>
                </div>
            ))} 
            <pre>
-               {data}
+               {myData}
            </pre>
             DisplayApi
         </div>
