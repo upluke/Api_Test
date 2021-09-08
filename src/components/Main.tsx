@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
-import {Counter} from './Counter'
-import { DisplayApi } from './DisplayApi'
+import {Counter} from './DisplayApi/Counter'
+import { DisplayApi } from './DisplayApi/DisplayApi'
  
 
 export const Main=()=>{

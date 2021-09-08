@@ -15,7 +15,7 @@ interface UserInfoInterface{
     name:Username
     picture:UserPicture
 }
-
+ 
 // @@@@@@ async await
 // async function fetchMyApi(){
 //     let response= await fetch("https://randomuser.me/api")
@@ -103,3 +103,5 @@ export const DisplayApi=()=>{
         </div>
     )
 }
+
+ 
