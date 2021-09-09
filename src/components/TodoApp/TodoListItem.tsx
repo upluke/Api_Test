@@ -1,11 +1,9 @@
 import { typeParameterDeclaration } from '@babel/types'
 import React from 'react'
+import {Todo} from './types'
 
 interface TodoListItemProps{
-    todo:{
-        text:string;
-        complete:boolean;
-    }
+    todo:Todo
 } 
 
 export const TodoListItem:React.FC<TodoListItemProps>=({todo})=>{
