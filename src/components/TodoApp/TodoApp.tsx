@@ -1,5 +1,6 @@
 import React from 'react'
-import { TodoListItem } from './TodoListItem'
+import { AddTodoForm } from './AddTodoForm'
+import { TodoList } from './TodoList'
 
 
 const initialTodos:Array<Todo>=[
@@ -19,11 +20,16 @@ export const TodoApp:React.FC=() =>{
         })
         setTodos(newTodos)
     }
+
+    const addTodo:AddTodo=newTodo=>{
+        newTodo.trim()!==""&& setTodos([...todos, {text:newTodo, complete:false}])
+         
+    }
+
     return (
         <React.Fragment>
-
-            <TodoListItem todo={todos[0]} toggleTodo={toggleTodo} />
-            <TodoListItem todo={todos[1]} toggleTodo={toggleTodo}/> 
+            <TodoList todos={todos} toggleTodo={toggleTodo} />
+            <AddTodoForm addTodo={addTodo} />
         </React.Fragment>
     )
 }
