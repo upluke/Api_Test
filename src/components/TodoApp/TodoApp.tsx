@@ -10,7 +10,7 @@ const initialTodos:Array<Todo>=[
 export const TodoApp:React.FC=() =>{
     const [todos, setTodos] =React.useState(initialTodos)
 
-    const toggleTodo=(selectedTodo:Todo)=>{
+    const toggleTodo:ToggleTodo=(selectedTodo)=>{
         const newTodos=todos.map(todo=>{
             if(todo===selectedTodo){
                return  {...todo, complete:!todo.complete}
