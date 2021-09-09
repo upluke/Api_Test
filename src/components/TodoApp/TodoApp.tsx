@@ -10,7 +10,7 @@ const todos:Array<Todo>=[
 export const TodoApp:React.FC=() =>{
     return (
         <div>
-            {/* <TodoListItem  /> */}
+            <TodoListItem todo={todos[0]} />
             Ok
         </div>
     )

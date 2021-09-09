@@ -1,4 +1,3 @@
-import { typeParameterDeclaration } from '@babel/types'
 import React from 'react'
 
 interface TodoListItemProps{
@@ -7,7 +6,7 @@ interface TodoListItemProps{
 
 export const TodoListItem:React.FC<TodoListItemProps>=({todo})=>{
     return (<li>
-            <label>
+            <label style={{textDecoration:todo.complete?"line-through":"none"}}>
                 <input type="checkbox" checked={todo.complete} />
                 {todo.text}
             </label>
