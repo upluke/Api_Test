@@ -1,6 +1,6 @@
 import React,{useState,useReducer} from 'react'
 
-
+// counter with useReducer
 enum ActionType{
     INCREMENT_COUNTER="INCREMENT_COUNTER",
     DECREMENT_COUNTER="DECREMENT_COUNTER"
