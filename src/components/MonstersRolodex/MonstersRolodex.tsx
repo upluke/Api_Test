@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
+import { CardList } from './CardList'
 
-export const MonstersRolodex=()=>{
+export const MonstersRolodex:React.FC=()=>{
     const [users, setUsers]=useState([])
     
     useEffect(()=>{
@@ -9,13 +10,15 @@ export const MonstersRolodex=()=>{
         .then(data=>setUsers(data))
     },[])
     
-    console.log("---",users)
+    console.log("users: ",users)
+    
      
     return(
         <div>
-            {users.map((user:any)=>{
-                return <p>{user.name}</p>
-            })}
+            <CardList users={users} />  
+            
+       
+           
         </div>
         
     )
