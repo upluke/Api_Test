@@ -10,14 +10,17 @@ export const MonstersRolodex:React.FC=()=>{
         .then(response=>response.json())
         .then(data=>setUsers(data))
     },[])
-    
+    const filteredUsers=users.filter((user:any)=>
+            user.name.toLowerCase().includes(searchField.toLowerCase())   
+        )
 
-
+    // onChange is a syntheticEvent
     return(
+       
         <div>
             <input type="search" placeholder="search monsters" 
-            onChange={e=>{setSearchField(e.target.value)}} />
-            <CardList users={users} />  
+            onChange={e=>{setSearchField(e.target.value)}} /> 
+            <CardList users={filteredUsers} />  
             
        
            
