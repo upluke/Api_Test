@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { CardList } from './CardList'
+import { SearchBox } from './SearchBox'
 
 export const MonstersRolodex:React.FC=()=>{
     const [users, setUsers]=useState([])
@@ -10,6 +11,7 @@ export const MonstersRolodex:React.FC=()=>{
         .then(response=>response.json())
         .then(data=>setUsers(data))
     },[])
+
     const filteredUsers=users.filter((user:any)=>
             user.name.toLowerCase().includes(searchField.toLowerCase())   
         )
@@ -18,8 +20,7 @@ export const MonstersRolodex:React.FC=()=>{
     return(
        
         <div>
-            <input type="search" placeholder="search monsters" 
-            onChange={e=>{setSearchField(e.target.value)}} /> 
+            <SearchBox placeholder='search monsters' handleChange={(e:any)=>setSearchField(e.target.value)} />
             <CardList users={filteredUsers} />  
             
        
