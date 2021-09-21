@@ -3,6 +3,7 @@ import {Counter} from './DisplayApi/Counter'
 import { DisplayApi } from './DisplayApi/DisplayApi'
 import {TodoApp} from './TodoApp/TodoApp'
 import { MonstersRolodex } from './MonstersRolodex/MonstersRolodex' 
+import { RatingStar } from './RatingStar/RatingStar'
 
 export const Main=()=>{
  
@@ -11,7 +12,8 @@ export const Main=()=>{
              {/* <Counter /> */}
              {/* <DisplayApi /> */}
              {/* <TodoApp /> */}
-             <MonstersRolodex />
+             {/* <MonstersRolodex /> */}
+             <RatingStar />
         </div>
     )
 }
