@@ -1,9 +1,35 @@
-import React from 'react'
-
-export const Star=()=> {
+import React from "react";
+function Star({
+  value,
+  color,
+  handleHover,
+  handleHoverLeave,
+  handleClick,
+  isFilled
+}) {
+  if (!handleHover) {
     return (
-        <div>
-            Star
-        </div>
-    )
+      <span
+        className="Star"
+        style={{ color }}
+        onMouseEnter={() => console.log("HOVERED IN")}
+        onMouseLeave={() => console.log("HOVERED OUT")}
+        onClick={() => alert("CLICKED A STAR!")}
+      >
+        {isFilled ? "★" : "☆"}
+      </span>
+    );
+  }
+  return (
+    <span
+      className="Star"
+      style={{ color }}
+      onMouseEnter={() => handleHover(value)}
+      onMouseLeave={() => handleHoverLeave(value)}
+      onClick={() => handleClick(value)}
+    >
+      {isFilled ? "★" : "☆"}
+    </span>
+  );
 }
+export default Star;
