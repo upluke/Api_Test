@@ -1,22 +1,21 @@
-import React, { Component } from "react";
+import React,{useState} from "react";
 import Star from "./Star";
 
-class Rating extends Component {
-  static defaultProps = { max: 5 };
-  constructor(props) {
-    super(props);
-    this.state = {
-      dynamicValue: props.stars,
-      value: 0
-    };
-    this._colors = {
+
+
+export const Rating:React.FC<any>=({stars})=> {
+    const [dynamicValue, setDynamicValue]=useState<number>(stars)
+    const [value, setValue]=useState<number>(0)
+
+ 
+    const _colors:any = {
       1: "#f44336",
       2: "#FF5722",
       3: "#FF9800",
       4: "#FFC107",
       5: "#FFEB3B"
     };
-    this._meanings = {
+    const _meanings:any = {
       0: "No Rating 🚫",
       1: "Terrible 🤮",
       2: "Mediocre 😒",
@@ -24,28 +23,24 @@ class Rating extends Component {
       4: "Solid 🙂",
       5: "Fantastic 🔥"
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    
+  
+  const handleClick=(newValue:any)=> {
+      setValue(newValue)
+      setDynamicValue(newValue)
   }
-  handleClick(newValue) {
-    this.setState({
-      value: newValue,
-      dynamicValue: newValue
-    });
-  }
-  handleMouseEnter(newValue) {
-    this.setState({ dynamicValue: newValue });
+  const handleMouseEnter=(newValue:any)=> {
+    setDynamicValue(newValue)
   }
 
-  handleMouseLeave(newValue) {
-    this.setState({ dynamicValue: this.state.value });
+  const handleMouseLeave=(newValue:any)=> {
+    setDynamicValue(value);
   }
 
-  render() {
-    const { dynamicValue, value } = this.state;
+   
+    
     const starSpans = [];
-    const max = this.props.max;
+    const max = 5
     let count = dynamicValue;
     // for (let v = 1; v <= max; v++) {
     //   if (v <= dynamicValue) {
@@ -56,21 +51,21 @@ class Rating extends Component {
       starSpans.push(
         <Star
           key={v}
-          color={this._colors[count]}
+          color={_colors[count]}
           isFilled={v <= dynamicValue}
           value={v}
-          handleHover={this.handleMouseEnter}
-          handleHoverLeave={this.handleMouseLeave}
-          handleClick={this.handleClick}
+          handleHover={handleMouseEnter}
+          handleHoverLeave={handleMouseLeave}
+          handleClick={handleClick}
         />
       );
     }
     return (
       <div>
-        <p>{this._meanings[value]}</p>
+        <p>{_meanings[value]}</p>
         {starSpans}
       </div>
     );
-  }
-}
-export default Rating;
+  
+    }
+ 

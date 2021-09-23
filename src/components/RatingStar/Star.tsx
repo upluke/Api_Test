@@ -1,12 +1,14 @@
 import React from "react";
-function Star({
+
+
+export const Star:React.FC<any>=({
   value,
   color,
   handleHover,
   handleHoverLeave,
   handleClick,
   isFilled
-}) {
+})=> {
   if (!handleHover) {
     return (
       <span
