@@ -1,21 +1,23 @@
 import React,{useState} from "react";
 import Star from "./Star";
 
-
+interface objectType {
+  [key:number]:string
+}
 
 export const Rating:React.FC<any>=({stars})=> {
     const [dynamicValue, setDynamicValue]=useState<number>(stars)
     const [value, setValue]=useState<number>(0)
 
  
-    const _colors:any = {
+    const _colors:objectType = {
       1: "#f44336",
       2: "#FF5722",
       3: "#FF9800",
       4: "#FFC107",
       5: "#FFEB3B"
     };
-    const _meanings:any = {
+    const _meanings:objectType = {
       0: "No Rating 🚫",
       1: "Terrible 🤮",
       2: "Mediocre 😒",
@@ -25,15 +27,15 @@ export const Rating:React.FC<any>=({stars})=> {
     };
     
   
-  const handleClick=(newValue:any)=> {
+  const handleClick=(newValue:number)=> {
       setValue(newValue)
       setDynamicValue(newValue)
   }
-  const handleMouseEnter=(newValue:any)=> {
+  const handleMouseEnter=(newValue:number)=> {
     setDynamicValue(newValue)
   }
 
-  const handleMouseLeave=(newValue:any)=> {
+  const handleMouseLeave=()=> {
     setDynamicValue(value);
   }
 

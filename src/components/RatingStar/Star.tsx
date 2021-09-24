@@ -1,5 +1,6 @@
 import React from "react";
 
+ 
 
 export const Star:React.FC<any>=({
   value,
@@ -27,7 +28,7 @@ export const Star:React.FC<any>=({
       className="Star"
       style={{ color }}
       onMouseEnter={() => handleHover(value)}
-      onMouseLeave={() => handleHoverLeave(value)}
+      onMouseLeave={() => handleHoverLeave()}
       onClick={() => handleClick(value)}
     >
       {isFilled ? "★" : "☆"}
