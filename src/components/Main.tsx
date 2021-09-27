@@ -4,6 +4,7 @@ import { DisplayApi } from './DisplayApi/DisplayApi'
 import {TodoApp} from './TodoApp/TodoApp'
 import { MonstersRolodex } from './MonstersRolodex/MonstersRolodex' 
 import { RatingStar } from './RatingStar/RatingStar'
+import {SlotMachine} from './SlotMachine/SlotMachine'
 
 export const Main=()=>{
  
@@ -13,7 +14,8 @@ export const Main=()=>{
              {/* <DisplayApi /> */}
              {/* <TodoApp /> */}
              {/* <MonstersRolodex /> */}
-             <RatingStar />
+             {/* <RatingStar /> */}
+             <SlotMachine />
         </div>
     )
 }
