@@ -5,6 +5,7 @@ import {TodoApp} from './TodoApp/TodoApp'
 import { MonstersRolodex } from './MonstersRolodex/MonstersRolodex' 
 import { RatingStar } from './RatingStar/RatingStar'
 import {SlotMachine} from './SlotMachine/SlotMachine'
+import {CartList} from './CartList/CartList'
 
 export const Main=()=>{
  
@@ -15,7 +16,8 @@ export const Main=()=>{
              {/* <TodoApp /> */}
              {/* <MonstersRolodex /> */}
              {/* <RatingStar /> */}
-             <SlotMachine />
+             {/* <SlotMachine /> */}
+             <CartList />
         </div>
     )
 }
