@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Pokecard} from './Pokecard'
-// import './Pokedex.css'
+import './Pokedex.css'
 
 const defaultProps={
     pokemon:[
