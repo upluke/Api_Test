@@ -6,7 +6,7 @@ import { MonstersRolodex } from './MonstersRolodex/MonstersRolodex'
 import { RatingStar } from './RatingStar/RatingStar'
 import {SlotMachine} from './SlotMachine/SlotMachine'
 import {CartList} from './CartList/CartList'
-import { Pokedex } from './Pokedex/Pokedex'
+import { PokeApp } from './Pokedex/PokeApp'
 
 export const Main=()=>{
  
@@ -19,7 +19,7 @@ export const Main=()=>{
              {/* <RatingStar /> */}
              {/* <SlotMachine /> */}
              {/* <CartList /> */}
-             <Pokedex />
+             <PokeApp />
         </div>
     )
 }
