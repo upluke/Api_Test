@@ -7,6 +7,7 @@ import { RatingStar } from './RatingStar/RatingStar'
 import {SlotMachine} from './SlotMachine/SlotMachine'
 import {CartList} from './CartList/CartList'
 import { PokeApp } from './Pokedex/PokeApp'
+import {RollDice} from './RollDice/RollDice'
 
 export const Main=()=>{
  
@@ -19,7 +20,8 @@ export const Main=()=>{
              {/* <RatingStar /> */}
              {/* <SlotMachine /> */}
              {/* <CartList /> */}
-             <PokeApp />
+             {/* <PokeApp /> */}
+             <RollDice />
         </div>
     )
 }
