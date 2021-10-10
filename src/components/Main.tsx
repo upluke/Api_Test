@@ -8,6 +8,7 @@ import {SlotMachine} from './SlotMachine/SlotMachine'
 import {CartList} from './CartList/CartList'
 import { PokeApp } from './Pokedex/PokeApp'
 import {RollDice} from './RollDice/RollDice'
+import {LotteryApp} from './LotteryApp/LotteryApp'
 
 export const Main=()=>{
  
@@ -21,7 +22,8 @@ export const Main=()=>{
              {/* <SlotMachine /> */}
              {/* <CartList /> */}
              {/* <PokeApp /> */}
-             <RollDice />
+             {/* <RollDice /> */}
+             <LotteryApp />
         </div>
     )
 }
