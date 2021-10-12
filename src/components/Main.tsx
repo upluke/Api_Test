@@ -9,6 +9,7 @@ import {CartList} from './CartList/CartList'
 import { PokeApp } from './Pokedex/PokeApp'
 import {RollDice} from './RollDice/RollDice'
 import {LotteryApp} from './LotteryApp/LotteryApp'
+import { CoinFlip } from './CoinFlip/CoinFlip'
 
 export const Main=()=>{
  
@@ -23,7 +24,8 @@ export const Main=()=>{
              {/* <CartList /> */}
              {/* <PokeApp /> */}
              {/* <RollDice /> */}
-             <LotteryApp />
+             {/* <LotteryApp /> */}
+             <CoinFlip />
         </div>
     )
 }
