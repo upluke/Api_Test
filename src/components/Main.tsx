@@ -10,6 +10,7 @@ import { PokeApp } from './Pokedex/PokeApp'
 import {RollDice} from './RollDice/RollDice'
 import {LotteryApp} from './LotteryApp/LotteryApp'
 import { CoinFlip } from './CoinFlip/CoinFlip'
+import { ColorBox } from './ColorBox/ColorBox'
 
 export const Main=()=>{
  
@@ -25,7 +26,8 @@ export const Main=()=>{
              {/* <PokeApp /> */}
              {/* <RollDice /> */}
              {/* <LotteryApp /> */}
-             <CoinFlip />
+             {/* <CoinFlip /> */}
+             <ColorBox />
         </div>
     )
 }
