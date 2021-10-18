@@ -11,6 +11,7 @@ import {RollDice} from './RollDice/RollDice'
 import {LotteryApp} from './LotteryApp/LotteryApp'
 import { CoinFlip } from './CoinFlip/CoinFlip'
 import { ColorBox } from './ColorBox/ColorBox'
+import { Hangman } from './Hangman/Hangman'
 
 export const Main=()=>{
  
@@ -27,7 +28,8 @@ export const Main=()=>{
              {/* <RollDice /> */}
              {/* <LotteryApp /> */}
              {/* <CoinFlip /> */}
-             <ColorBox />
+             {/* <ColorBox /> */}
+             <Hangman />
         </div>
     )
 }
