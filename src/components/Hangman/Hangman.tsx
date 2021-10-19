@@ -48,9 +48,11 @@ export const Hangman =()=> {
     //   nWrong: st.nWrong + (st.answer.includes(ltr) ? 0 : 1)
     // }));
 
-    setGuessed((st:any)=>st.add(ltr))
+    const new_guessed=guessed.add(ltr)
     let value=answer.includes(ltr)?0:1
-    setNWrong((st:any)=>st +value)
+    const newWrong=nWrong+value
+    setGuessed(new_guessed )
+    setNWrong(newWrong)
 
   }  
   
