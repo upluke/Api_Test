@@ -29,7 +29,7 @@ export const Main=()=>{
              {/* <LotteryApp /> */}
              {/* <CoinFlip /> */}
              {/* <ColorBox /> */}
-             <Hangman />
+             {/* <Hangman /> */}
         </div>
     )
 }
